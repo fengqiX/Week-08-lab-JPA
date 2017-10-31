@@ -35,14 +35,14 @@ public class NoteService {
 
     public int update(int noteId,String contents) throws NotesDBException
     {
-        Note note = new Note(noteId);
+        Note note = ndb.getNote(noteId);
         note.setContents(contents);
         return ndb.update(note);
     }
     public int delete(int noteId) throws NotesDBException
     {
-        Note note = new Note();
-        note.setNoteid(noteId);
+        Note note = ndb.getNote(noteId);
+       // note.setNoteid(noteId);
         return ndb.delete(note);
     }
     public int insert(String contents) throws NotesDBException //insert new

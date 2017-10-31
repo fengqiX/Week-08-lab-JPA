@@ -49,6 +49,7 @@ public class NoteDB {
             trans.commit();
             return 1;
         } catch (Exception ex) {
+            trans.rollback();
             //Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, "Cannot update " + user.toString(), ex);
             throw new NotesDBException("Error updating note");
         } finally {

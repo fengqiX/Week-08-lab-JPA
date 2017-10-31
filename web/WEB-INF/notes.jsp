@@ -19,21 +19,21 @@
             </tr>
             <c:forEach var="note" items="${notesList}">
                 <tr>
-                    <td>${note.noteId}</td>
-                    <td>${note.date}</td>
+                    <td>${note.noteid}</td>
+                    <td>${note.dateCreated}</td>
                     <td>${note.contents}</td>
                     <td>
                         <form action="Note" method="post" >
                             <input type="submit" value="Delete">
                             <input type="hidden" name="action" value="delete">
-                            <input type="hidden" name="selectedNoteId" value="${note.noteId}">
+                            <input type="hidden" name="selectedNoteId" value="${note.noteid}">
                         </form>
                     </td>
                     <td>
                         <form action="Note" method="get">
                             <input type="submit" value="Edit">
                             <input type="hidden" name="action" value="view">
-                            <input type="hidden" name="selectedNoteId" value="${note.noteId}">
+                            <input type="hidden" name="selectedNoteId" value="${note.noteid}">
                         </form>
                     </td>
                 </tr>
@@ -42,8 +42,8 @@
 
             <h3>Edit User</h3>
             <form action="Note?action=edit" method="POST">
-                Note ID: <input type="text" name="id" value="${note.noteId}" readonly><br>
-                Date Created: <input type="text" name="date" value="${note.date}" readonly><br>
+                Note ID: <input type="text" name="id" value="${note.noteid}" readonly><br>
+                Date Created: <input type="text" name="date" value="${note.dateCreated}" readonly><br>
                 Contents:<input type="text" name="contents" value="${note.contents}"><br>
                 <input type="submit" value="Save">
             </form>
